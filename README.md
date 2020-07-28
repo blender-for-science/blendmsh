@@ -41,7 +41,7 @@ Blendmsh is a bridge between Blender 2.80+ and Gmsh, a fast and light 3D finite 
 ### Definition of Physical Groups
 Physical groups can be defined by assigning materials to faces (Boundaries).
 
-![Physical Groups](documentation/physical_groups_def.png)
+![Physical Groups](documentation/physicalgroups.png)
 
 ### Output
 Output mesh is saved to the specified workspace path, it can then be imported into FreeCAD, OpenFOAM, Paraview or anyother application that supports the above mentioned mesh format. 

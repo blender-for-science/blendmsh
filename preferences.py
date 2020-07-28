@@ -17,7 +17,6 @@ class BlendmshPreferences(bpy.types.AddonPreferences):
             layout.label(text='Blendmsh requires Gmsh module!', icon='ERROR')
             row = layout.row()
             row.operator('blendmsh.installer')
-            layout.label(text='Installing Gmsh module...', icon='URL')
 
 class BlendmshInstaller(bpy.types.Operator):
     bl_idname = "blendmsh.installer"
