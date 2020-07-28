@@ -8,7 +8,7 @@ class BlendmshProperties(bpy.types.PropertyGroup):
         workspace_path : StringProperty(
                 name="",
                 description="Path for the results",
-                default='/home/holycow/Desktop/workspace',
+                default='/tmp/',
                 subtype='DIR_PATH')
 
         cl_max : FloatProperty(
@@ -48,16 +48,16 @@ class BlendmshProperties(bpy.types.PropertyGroup):
                 items=[
                         ('0', 'auto', 'Automatic'),
                         ('1', 'meshadapt', 'Meshadapt'),
-                        ('2', 'del2d', 'Meshadapt'),
-                        ('3', 'front2d', 'Meshadapt'),
-                        ('4', 'delquad', 'Meshadapt'),
-                        ('5', 'pack', 'Meshadapt'),
-                        ('6', 'initial2d', 'Meshadapt'),
-                        ('7', 'del3d', 'Meshadapt'),
-                        ('8', 'front3d', 'Meshadapt'),
-                        ('9', 'mmg3d', 'Meshadapt'),
-                        ('10', 'hxt', 'Meshadapt'),
-                        ('11', 'initial3d', 'Meshadapt')],
+                        ('2', 'del2d', 'Delunay2D'),
+                        ('3', 'front2d', 'Front2D'),
+                        ('4', 'delquad', 'Delquad'),
+                        ('5', 'pack', 'Pack'),
+                        ('6', 'initial2d', 'Initial2D'),
+                        ('7', 'del3d', 'Delunay3D'),
+                        ('8', 'front3d', 'Front3D'),
+                        ('9', 'mmg3d', 'MMG3D'),
+                        ('10', 'hxt', 'HXT'),
+                        ('11', 'initial3d', 'Initial3D')],
 
                 default='0',
                 description="Algorithm")

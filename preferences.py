@@ -31,7 +31,6 @@ class BlendmshInstaller(bpy.types.Operator):
             Pip.install('gmsh')
 
             import gmsh
-            bool_gmsh = True
             self.report({'INFO'}, 'Successfully installed Gmsh module.')
         except:
             self.report({'ERROR'}, 'Could not install Gmsh module, Kindly install it manually.')

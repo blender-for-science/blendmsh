@@ -15,7 +15,7 @@ bl_info = {
     "name" : "blendmsh",
     "author" : "Senthur Raj",
     "description" : "",
-    "blender" : (2, 83, 0),
+    "blender" : (2, 80, 0),
     "version" : (1, 0, 0),
     "location" : "View3D",
     "warning" : "",
