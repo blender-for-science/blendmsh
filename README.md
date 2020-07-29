@@ -53,4 +53,5 @@ Report any issues or feedback here: https://github.com/blender-for-science/blend
 
 ## References
 
-Gmsh documentation: http://gmsh.info/doc/texinfo/gmsh.html
+Gmsh documentation: http://gmsh.info/doc/texinfo/gmsh.html  
+gmsh-api: https://pypi.org/project/gmsh-api

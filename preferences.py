@@ -11,26 +11,26 @@ class BlendmshPreferences(bpy.types.AddonPreferences):
 
         layout = self.layout       
 
-        if importlib.util.find_spec('gmsh') is not None:
-            layout.label(text='Gmsh module loaded.', icon='INFO')
+        if importlib.util.find_spec('gmsh-api') is not None:
+            layout.label(text='gmsh-api loaded.', icon='INFO')
         else:
-            layout.label(text='Blendmsh requires Gmsh module!', icon='ERROR')
+            layout.label(text='Blendmsh requires gmsh-api!', icon='ERROR')
             row = layout.row()
             row.operator('blendmsh.installer')
 
 class BlendmshInstaller(bpy.types.Operator):
     bl_idname = "blendmsh.installer"
-    bl_label = "Install Gmsh"
-    bl_description = ("Install Gmsh module")
+    bl_label = "Install gmsh-api"
+    bl_description = ("Install gmsh-api")
 
     def execute(self, context):
         try:
             from .utils_pip import Pip
             # Pip.upgrade_pip()
-            Pip.install('gmsh')
+            Pip.install('gmsh-api')
 
-            import gmsh
-            self.report({'INFO'}, 'Successfully installed Gmsh module.')
+            import gmsh_api
+            self.report({'INFO'}, 'Successfully installed gmsh-api.')
         except:
-            self.report({'ERROR'}, 'Could not install Gmsh module, Kindly install it manually.')
+            self.report({'ERROR'}, 'Could not install gmsh-api, Kindly install it manually.')
         return {'FINISHED'}

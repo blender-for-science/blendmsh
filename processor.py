@@ -76,7 +76,7 @@ class BLENDMSH_OT_Meshproc(bpy.types.Operator):
         scene = context.scene
 
         try:
-            import gmsh
+            import gmsh_api.gmsh as gmsh
 
             if scene.blendmsh.initialized:
                 filename = bpy.context.active_object.name
