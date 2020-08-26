@@ -33,19 +33,17 @@ class BLENDMSH_PT_Panel(bpy.types.Panel):
                     slider=True, toggle=False, icon_only=False, event=False,
                     full_event=False, emboss=True)
 
-        row = layout.row()
         rowsub = layout.row(align=True)
         rowsub.prop(scene.blendmsh, 'algorithm')
 
         rowsub = layout.row(align=True)
         rowsub.prop(scene.blendmsh, "cl_max")
 
-        row = layout.row(align=True)
-        row.prop(scene.blendmsh, "mesh_dimension", icon='NONE', expand=True,
+        rowsub = layout.row(align=True)
+        rowsub.prop(scene.blendmsh, "mesh_dimension", icon='NONE', expand=True,
                     slider=True, toggle=False, icon_only=False, event=False,
                     full_event=False, emboss=True)
 
-        row = layout.row()
         rowsub = layout.row(align=True)
         rowsub.prop(scene.blendmsh, 'output_file_format')
 

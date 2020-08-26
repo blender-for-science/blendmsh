@@ -11,14 +11,28 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+#################################################
+
+# -------------------
+# Blender for Science
+# -------------------
+# Add-on: blendmsh
+# Author: Senthur Raj (Github: imsenthur)
+# Description: Blendmsh is a bridge between Blender 2.80+ and Gmsh, a fast and light 3D finite element mesh generator.
+# https://github.com/blender-for-science/blendmsh
+
+#################################################
+
 bl_info = {
     "name" : "blendmsh",
     "author" : "Senthur Raj",
     "description" : "Blendmsh is a bridge between Blender 2.80+ and Gmsh, a fast and light 3D finite element mesh generator.",
     "blender" : (2, 80, 0),
-    "version" : (1, 0, 0),
+    "version" : (1, 1, 0),
     "location" : "View3D",
     "warning" : "",
+    "wiki_url" : "https://github.com/blender-for-science/blendmsh",
+    "tracker_url" : "https://github.com/blender-for-science/blendmsh",
     "category" : "Mesh"
 }
 
@@ -35,7 +49,6 @@ def register():
     bpy.utils.register_class(BlendmshProperties)
     bpy.utils.register_class(BLENDMSH_PT_Panel)
     bpy.types.Scene.blendmsh = bpy.props.PointerProperty(type=BlendmshProperties)
-
     bpy.utils.register_class(BLENDMSH_OT_Meshinit)
     bpy.utils.register_class(BLENDMSH_OT_Meshproc)
     bpy.utils.register_class(BLENDMSH_OT_Physicalgroups)
