@@ -40,12 +40,11 @@ class BLENDMSH_PT_Panel(bpy.types.Panel):
         rowsub.prop(scene.blendmsh, "cl_max")
 
         rowsub = layout.row(align=True)
-        rowsub.prop(scene.blendmsh, "mesh_dimension", icon='NONE', expand=True,
-                    slider=True, toggle=False, icon_only=False, event=False,
-                    full_event=False, emboss=True)
+        rowsub.prop(scene.blendmsh, "mesh_dimension", expand=True, slider=True,
+                    toggle=False, icon_only=False, emboss=True)
 
-        rowsub = layout.row(align=True)
-        rowsub.prop(scene.blendmsh, 'output_file_format')
+        row = layout.row(align=True)
+        row.prop(scene.blendmsh, 'output_file_format')
 
         row = layout.row()
         row.label(text=" ")
