@@ -14,7 +14,7 @@
 bl_info = {
     "name" : "blendmsh",
     "author" : "Senthur Raj",
-    "description" : "",
+    "description" : "Blendmsh is a bridge between Blender 2.80+ and Gmsh, a fast and light 3D finite element mesh generator.",
     "blender" : (2, 80, 0),
     "version" : (1, 0, 0),
     "location" : "View3D",

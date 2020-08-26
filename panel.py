@@ -1,5 +1,4 @@
 import bpy
-from bpy.props import BoolVectorProperty
 
 class BLENDMSH_PT_Panel(bpy.types.Panel):
     bl_idname = 'BLENDMSH_PT_panel'
@@ -16,22 +15,22 @@ class BLENDMSH_PT_Panel(bpy.types.Panel):
         rowsub = layout.row(align=True)
         rowsub.prop(scene.blendmsh, 'workspace_path')
 
-        col = layout.column()    
+        col = layout.column()
         col.operator('blendmsh.meshinit', text='Initialize')
 
         row = layout.row()
         row.label(text=" ")
 
         rowsub = layout.row(align=True)
-        rowsub.prop(scene.blendmsh, "n_physicalgroups")  
+        rowsub.prop(scene.blendmsh, "n_physicalgroups")
         rowsub.operator('blendmsh.physicalgroups', icon='ADD')
 
         row = layout.row()
         row.label(text=" ")
 
         row = layout.row(align=True)
-        row.prop(scene.blendmsh, "element_order", icon='NONE', expand=True, 
-                    slider=True, toggle=False, icon_only=False, event=False, 
+        row.prop(scene.blendmsh, "element_order", icon='NONE', expand=True,
+                    slider=True, toggle=False, icon_only=False, event=False,
                     full_event=False, emboss=True)
 
         row = layout.row()
@@ -42,8 +41,8 @@ class BLENDMSH_PT_Panel(bpy.types.Panel):
         rowsub.prop(scene.blendmsh, "cl_max")
 
         row = layout.row(align=True)
-        row.prop(scene.blendmsh, "mesh_dimension", icon='NONE', expand=True, 
-                    slider=True, toggle=False, icon_only=False, event=False, 
+        row.prop(scene.blendmsh, "mesh_dimension", icon='NONE', expand=True,
+                    slider=True, toggle=False, icon_only=False, event=False,
                     full_event=False, emboss=True)
 
         row = layout.row()
@@ -53,7 +52,7 @@ class BLENDMSH_PT_Panel(bpy.types.Panel):
         row = layout.row()
         row.label(text=" ")
 
-        col = layout.column()    
+        col = layout.column()
         col.operator('blendmsh.meshproc', text='Mesh')
 
         row = layout.row()

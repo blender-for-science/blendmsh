@@ -9,7 +9,7 @@ class BlendmshPreferences(bpy.types.AddonPreferences):
         from .utils_pip import Pip
         Pip._ensure_user_site_package()
 
-        layout = self.layout       
+        layout = self.layout
 
         if importlib.util.find_spec('gmsh-api') is not None:
             layout.label(text='gmsh-api loaded.', icon='INFO')
@@ -30,7 +30,8 @@ class BlendmshInstaller(bpy.types.Operator):
             Pip.install('gmsh-api')
 
             import gmsh_api
+            print(gmsh_api.__version__)
             self.report({'INFO'}, 'Successfully installed gmsh-api.')
-        except:
+        except ModuleNotFoundError:
             self.report({'ERROR'}, 'Could not install gmsh-api, Kindly install it manually.')
         return {'FINISHED'}

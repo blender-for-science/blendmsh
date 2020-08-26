@@ -31,7 +31,7 @@ class BLENDMSH_OT_Physicalgroups(bpy.types.Operator):
 
             for i in range(scene.blendmsh.n_physicalgroups):
                 if str('GROUP_{}'.format(i+1)) not in bpy.data.materials:
-                    
+
                     temp_mat = bpy.data.materials.new(name='GROUP_{}'.format(i+1))
                     temp_mat.diffuse_color = self.diffuse_library[i]
                     active_object.data.materials.append(temp_mat)
@@ -40,7 +40,7 @@ class BLENDMSH_OT_Physicalgroups(bpy.types.Operator):
             return{'FINISHED'}
         else:
             self.report({'ERROR'}, 'Kindly initialize geometry before defining physical groups.')
-            return {'CANCELLED'}    
+            return {'CANCELLED'}
 
 class BLENDMSH_OT_Meshinit(bpy.types.Operator):
     bl_idname = 'blendmsh.meshinit'
@@ -112,10 +112,10 @@ class BLENDMSH_OT_Meshproc(bpy.types.Operator):
                             geo_points[i] = _vertex
                             i += 1
 
-                for i in range(len(data)):
-                    triangles[i+1] = [points[data[i][0]], points[data[i][1]], points[data[i][2]]]
+                for i, _data in enumerate(data):
+                    triangles[i+1] = [points[_data[0]], points[_data[1]], points[_data[2]]]
 
-                i = 1    
+                i = 1
                 for _triangle in triangles.values():
                     for _edge in self.get_edge_indices(_triangle):
                         if _edge not in edges.keys() and _edge[::-1] not in edges.keys():
@@ -134,7 +134,7 @@ class BLENDMSH_OT_Meshproc(bpy.types.Operator):
                 all_physical_group_faces = set()
                 for _face_lists in physical_group_faces.values():
                     for _face_id in _face_lists:
-                        all_physical_group_faces.add(_face_id)    
+                        all_physical_group_faces.add(_face_id)
 
                 gmsh.initialize()
                 gmsh.option.setNumber('General.Terminal', 1)
@@ -147,7 +147,7 @@ class BLENDMSH_OT_Meshproc(bpy.types.Operator):
 
                 for _edge in edges.keys():
                     geo.addLine(_edge[0], _edge[1], edges[_edge])
-        
+
                 for _curve_id in curve_loop.keys():
                     geo.addCurveLoop([curve_loop[_curve_id][0], curve_loop[_curve_id][1], curve_loop[_curve_id][2]], _curve_id)
                     surf_temp = geo.addPlaneSurface([_curve_id], _curve_id)
@@ -156,7 +156,7 @@ class BLENDMSH_OT_Meshproc(bpy.types.Operator):
                         gmsh.model.addPhysicalGroup(2, [surf_temp], _curve_id)
 
                 sl = geo.addSurfaceLoop(list(curve_loop.keys()))
-                v = geo.addVolume([sl])
+                _ = geo.addVolume([sl])
 
                 gmsh.model.geo.synchronize()
 
@@ -175,14 +175,14 @@ class BLENDMSH_OT_Meshproc(bpy.types.Operator):
 
             else:
                 self.report({'ERROR'}, 'Kindly initialize geometry before defining physical groups.')
-                return {'CANCELLED'}            
+                return {'CANCELLED'}
 
-        except:
+        except ModuleNotFoundError:
             self.report({'ERROR'}, 'Couldnot import Gmsh module, Kindly re-install it manually.')
             return {'CANCELLED'}
 
-
-    def get_raw_data(self, path):
+    @staticmethod
+    def get_raw_data(path):
         data = [[]]
         with open(path, 'r') as f:
             line = f.readline()
@@ -198,8 +198,10 @@ class BLENDMSH_OT_Meshproc(bpy.types.Operator):
 
         return data[:-1]
 
-    def get_curve_loop(self, surf):
+    @staticmethod
+    def get_curve_loop(surf):
         return [(surf[0], surf[1]), (surf[1], surf[2]), (surf[2], surf[0])]
 
-    def get_edge_indices(self, surf):
+    @staticmethod
+    def get_edge_indices(surf):
         return [(surf[0], surf[2]), (surf[0], surf[1]), (surf[1], surf[2])]
