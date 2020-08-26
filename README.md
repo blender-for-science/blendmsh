@@ -1,5 +1,8 @@
 # Blendmsh
+[![Blender](https://img.shields.io/badge/Blender-2.80%2B-orange)](https://www.blender.org/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6ffbb6b533d044d590498fb4d730999b)](https://app.codacy.com/gh/blender-for-science/blendmsh?utm_source=github.com&utm_medium=referral&utm_content=blender-for-science/blendmsh&utm_campaign=Badge_Grade_Dashboard)
+[![Release](https://img.shields.io/github/v/release/blender-for-science/blendmsh)](https://github.com/blender-for-science/blendmsh/releases)
+[![License](https://img.shields.io/github/license/blender-for-science/blendmsh)](https://github.com/blender-for-science/blendmsh/blob/master/LICENSE.md)
 [![Gitter](https://badges.gitter.im/blender-for-science/community.svg)](https://gitter.im/blender-for-science/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Blendmsh is a bridge between Blender 2.80+ and Gmsh, a fast and light 3D finite element mesh generator.
